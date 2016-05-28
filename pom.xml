@@ -8,7 +8,7 @@
 	<build>
 <!-- 		<sourceDirectory>src/main</sourceDirectory> -->
 <!-- 		<testSourceDirectory>src/test</testSourceDirectory> -->
-
+test
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

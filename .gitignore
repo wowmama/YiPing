@@ -1,0 +1,8 @@
+/target/
+/.settings/
+/eclipseWorkspaces/
+/.classpath
+/.project
+/.tern-project
+**.log
+/bin/

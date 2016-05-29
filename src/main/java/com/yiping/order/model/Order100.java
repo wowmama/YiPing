@@ -73,7 +73,7 @@ public class Order100 implements java.io.Serializable {
 		this.order100Id = order100Id;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CUSTOMER100_ID", nullable = false)
 	public Customer100 getCustomer100() {
 		return this.customer100;

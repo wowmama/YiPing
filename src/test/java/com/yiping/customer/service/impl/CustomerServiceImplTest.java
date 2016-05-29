@@ -51,6 +51,9 @@ public class CustomerServiceImplTest{
 		customer100.setCusPhoneNum("0975689547");
 		customer100.setCusSex(1);
 		customerService.addCustomer(customer100);
+		
+		assertEquals(7, customerService.findCustomerAll().size());
+		
 	}
 	
 	@Test
@@ -58,13 +61,15 @@ public class CustomerServiceImplTest{
 	@Rollback(true)
 	public void testModifyCustomer(){
 		Customer100 customer100 = customerService.findCustomerById(1);
-		
-		entityManager.detach(customer100);
-		
-		customer100.setCusName("test");
-		customer100.setCusPhoneNum("555");
+		customer100.setCusName("Modify Name");
+		customer100.setCusPhoneNum("0911123123");
 		customer100.setCusSex(0);
 		customerService.modifyCustomer(customer100);
+		
+		customer100 = customerService.findCustomerById(1);
+		assertEquals("Modify Name", customer100.getCusName());
+		assertEquals("0911123123", customer100.getCusPhoneNum());
+		assertEquals(new Integer(0), customer100.getCusSex());
 	}
 	
 	@Test
@@ -73,19 +78,13 @@ public class CustomerServiceImplTest{
 		int customer100Id = 1;
 		Customer100 customer100 = customerService.findCustomerById(customer100Id);
 		assertEquals(customer100Id, customer100.getCustomer100Id());
-		System.out.println("CusName : " + customer100.getCusName() + ", Phone : " + customer100.getCusPhoneNum());
 	}
 	
 	@Test
 	@Transactional
 	public void testFindCustomerAll(){
 		List<Customer100> customer100List = customerService.findCustomerAll();
-		for(Customer100 customer100 : customer100List){
-			System.out.println("CusName : " + customer100.getCusName() + ", Phone : " + customer100.getCusPhoneNum());
-			for(Order100 order100 : customer100.getOrder100s()){
-				System.out.println("OrderId : " + order100.getOrder100Id());
-			}
-		}
+		assertEquals(6, customer100List.size());
 	}
 
 }

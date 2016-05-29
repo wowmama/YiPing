@@ -1,7 +1,9 @@
 package com.yiping.order.service.impl;
 
+import java.awt.SystemColor;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,6 +23,7 @@ import com.yiping.order.model.Order101;
 import com.yiping.order.service.OrderService;
 import com.yiping.product.model.Product100;
 import com.yiping.product.service.ProductService;
+import com.yiping.sys.constant.SysStatusConstant;
 import com.yiping.sys.model.SysStatus100;
 import com.yiping.sys.service.SysStatusService;
 
@@ -44,13 +47,16 @@ public class OrderServiceImplTest{
 	/*
 	  	public void addOrder(Order100 order100);
 		public void modifyOrder(Order100 order100);
-		public void deletetOrderById(int order100Id);
-		public Order100 findOrderById(int order100Id);
-		public List<Order100> findOrderByCustomerId(int cutomer100Id);
+		public void modifyOrderStatusToShipping(Integer order100Id);
+		public void modifyOrderStatusToNoShipping(Integer order100Id);
+		public void deletetOrderById(Integer order100Id);
+		public Order100 findOrderById(Integer order100Id);
+		public List<Order100> findOrderByCustomerId(Integer customer100Id);
 		public List<Order100> findOrderByCustomerPhone(String cusPhone);
 		public List<Order100> findOrderByCustomerName(String cusNmame);
 		public List<Order100> findOrderAll();
 		public List<Order100> findOrderByMultiCondition(Order100 whereCondition);
+		public List<Order100> findOrderByConditions(Map<String,Object> whereCondition);
 	 */
 	@Test
 	@Transactional
@@ -59,22 +65,22 @@ public class OrderServiceImplTest{
 		int customer100Id = 1;
 		int orderStatusNum = 2;
 		int productStatusNum = 4;
-		Customer100 customer100 = customerService.findCustomerById(customer100Id);
-		Product100 product1 = producService.findProductById(1);
-		Product100 product2 = producService.findProductById(2);
-		SysStatus100 orderStatus = sysStatusService.findSysStatusById(orderStatusNum);
-		SysStatus100 productStatus = sysStatusService.findSysStatusById(productStatusNum);
-		entityManager.detach(customer100);
-		entityManager.detach(orderStatus);
-		entityManager.detach(productStatus);
-		entityManager.detach(product1);
-		entityManager.detach(product2);
-		
+		Customer100 customer100 = new Customer100();
+		customer100.setCustomer100Id(1);
+		Product100 product1 = new Product100();
+		product1.setProduct100Id(1);
+		Product100 product2 = new Product100();
+		product2.setProduct100Id(2);
+		SysStatus100 orderStatus = new SysStatus100();
+		orderStatus.setSysStatus100Id(SysStatusConstant.ORDER_STATUS_NO_SHIPPING);
+		SysStatus100 productStatus = new SysStatus100();
+		productStatus.setSysStatus100Id(SysStatusConstant.PRODUCT_STATUS_HOT);
 		
 		Order100 order100 = new Order100();
 		order100.setCustomer100(customer100);
 		order100.setPickupTime(new Date());
 		order100.setCreateTime(new Date());
+		order100.setDeposit(0);
 		order100.setOrderStatus(orderStatus);
 		
 		Order101 order101 = new Order101();

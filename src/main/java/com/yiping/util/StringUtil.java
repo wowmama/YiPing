@@ -26,8 +26,4 @@ public class StringUtil {
 	    return s.substring(0, 1).toUpperCase() +
 	               s.substring(1).toLowerCase();
 	}
-	
-	public static void main(String[] args){
-		System.out.println(toCamelCase("CUS_NAME"));
-	}
 }

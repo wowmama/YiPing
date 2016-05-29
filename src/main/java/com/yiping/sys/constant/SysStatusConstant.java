@@ -8,4 +8,6 @@ public class SysStatusConstant {
 	public static final int PRODUCT_STATUS_FREEZING = 5;
 	public static final int STOCK_TYPE_IMPORT = 6;
 	public static final int STOCK_TYPE_EXPORT = 7;
+	public static final int CUS_SEX_MALE = 8;
+	public static final int CUS_SEX_MALE_FEMALE = 9;
 }

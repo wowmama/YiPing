@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yiping.product.dao.ProductDao;
 import com.yiping.product.model.Product100;
+import com.yiping.product.service.ProductService;
 
 @RestController
 public class ProductController {
 	@Autowired
-	private ProductDao productService;
+	private ProductService productService;
 	
 	/*
 	 	public void addProduct(Product100 product100);

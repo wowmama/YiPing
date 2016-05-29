@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yiping.order.dao.OrderDao;
 import com.yiping.order.model.Order100;
+import com.yiping.order.service.OrderService;
 
 @RestController
 public class OrderController {
 	@Autowired
-	private OrderDao orderService;
+	private OrderService orderService;
 	
 	/*
 	  	public void addOrder(Order100 order100);

@@ -6,8 +6,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<build>
-<!-- 		<sourceDirectory>src/main</sourceDirectory> -->
-<!-- 		<testSourceDirectory>src/test</testSourceDirectory> -->
+		<!-- <sourceDirectory>src/main</sourceDirectory> -->
+		<!-- <testSourceDirectory>src/test</testSourceDirectory> -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -112,6 +112,13 @@
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

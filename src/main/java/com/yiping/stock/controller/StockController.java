@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yiping.stock.dao.StockDao;
 import com.yiping.stock.model.Stock100;
 import com.yiping.stock.model.Stock101;
+import com.yiping.stock.service.StockService;
 
 @RestController
 public class StockController {
 	@Autowired
-	private StockDao stockService;
+	private StockService stockService;
 	
 	/*
 	 	public void addStock(Stock100 stock100);

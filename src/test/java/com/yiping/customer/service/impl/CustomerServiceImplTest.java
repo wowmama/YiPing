@@ -23,7 +23,7 @@ import com.yiping.order.model.Order100;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:unitTest-context.xml"})
+@ContextConfiguration(locations = { "classpath:spring/unitTest-context.xml"})
 public class CustomerServiceImplTest{
 	
 	@PersistenceContext

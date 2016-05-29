@@ -26,7 +26,7 @@ import com.yiping.sys.model.SysStatus100;
 import com.yiping.sys.service.SysStatusService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:unitTest-context.xml"})
+@ContextConfiguration(locations = { "classpath:spring/unitTest-context.xml"})
 public class StockServiceImplTest{
 	
 	@PersistenceContext
